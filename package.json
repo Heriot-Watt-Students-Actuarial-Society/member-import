@@ -1,0 +1,59 @@
+{
+  "name": "sas-member-import",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Import members from email to MC",
+  "main": "index.js",
+  "repository": "git@github.com:Heriot-Watt-Students-Actuarial-Society/member-import.git",
+  "author": "Amit Parekh <amit@amitkparekh.com>",
+  "license": "BSD-3",
+  "scripts": {
+    "start": "ts-node src/",
+    "lint": "run-p lint:**",
+    "lint:es": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "lint:types": "tsc",
+    "fix": "run-p fix:**",
+    "fix:es": "eslint --ext .js,.jsx,.ts,.tsx  --fix ./"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js?(x),ts?(x)}": "eslint --fix",
+    "*.{html,md,json,yml,yaml,css}": "prettier --write"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/imap": "^0.8.30",
+    "@types/mailparser": "^2.7.3",
+    "@types/md5": "^2.2.0",
+    "@types/node": "^14.0.5",
+    "@types/node-fetch": "^2.5.7",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "eslint-plugin-unicorn": "^19",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "imap": "^0.8.19",
+    "mailchimp-api-v3": "^1.14.0",
+    "mailparser": "^2.7.7",
+    "md5": "^2.2.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3",
+    "xlsx": "^0.16.1"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "root": true,
+
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort",
+    "unicorn"
+  ],
+
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript/base",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+
+  "rules": {
+    "no-console": "warn",
+    "no-unused-vars": "off",
+    "no-nested-ternary": "off",
+
+    "no-param-reassign": "off",
+
+    // Make prettier code formatting suggestions more verbose.
+    "prettier/prettier": ["error"],
+
+    // Disable prefer default export
+    "import/prefer-default-export": "off",
+
+    "import/first": "error",
+
+    // Sort imports
+    "import/order": "off",
+    "sort-imports": "off",
+
+    "simple-import-sort/sort": [
+      "error",
+      {
+        "groups": [
+          // Side effect imports.
+          ["^\\u0000"],
+
+          // Alias imports
+          // Anything that starts with a capital letter
+          ["^[A-Z]"],
+
+          // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+          ["^@?\\w"],
+
+          // Absolute imports and other imports such as Vue-style `@/foo`.
+          // Anything that does not start with a dot EXCEPT alias imports
+          ["^[^.]"],
+
+          // Relative imports.
+          // Anything that starts with a dot.
+          ["^\\."]
+        ]
+      }
+    ],
+
+    // Eslint plugin unicorn
+    "unicorn/catch-error-name": "error",
+    "unicorn/no-abusive-eslint-disable": "error",
+    "unicorn/no-array-instanceof": "error",
+    "unicorn/no-for-loop": "error",
+    "unicorn/no-nested-ternary": "off",
+    "unicorn/no-unreadable-array-destructuring": "error",
+    "unicorn/no-zero-fractions": "error",
+    "unicorn/prefer-add-event-listener": "error",
+    "unicorn/prefer-dataset": "error",
+    "unicorn/prefer-event-key": "error",
+    "unicorn/prefer-flat-map": "error",
+    "unicorn/prefer-includes": "error",
+    "unicorn/prefer-modern-dom-apis": "error",
+    "unicorn/prefer-negative-index": "error",
+    "unicorn/prefer-node-append": "error",
+    "unicorn/prefer-node-remove": "error",
+    "unicorn/prefer-query-selector": "error",
+    "unicorn/prefer-reflect-apply": "error",
+    "unicorn/prefer-spread": "error",
+    "unicorn/prefer-starts-ends-with": "error",
+    "unicorn/prefer-string-slice": "error",
+    "unicorn/prefer-text-content": "error",
+    "unicorn/prefer-trim-start-end": "error",
+    "unicorn/prefer-type-error": "error",
+    "unicorn/regex-shorthand": "error",
+
+    // Handle unused expressions
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": true
+      }
+    ]
+  }
+}
