@@ -46,9 +46,18 @@ const createNewSegment = async (segmentName: string): Promise<void> => {
       path: `/lists/${process.env.MAILCHIMP_MEMBERS_LIST_ID}/segments`,
       body: {
         name: segmentName,
+        static_segment: [],
       },
     })
   } catch (error) {
+    /**
+     * If the tag already exists but the execution has made it this far, there
+     * is lag between sending the previous request and getting the response,
+     * which can happen. In this case, just continue with the code logic.
+     */
+    if (error.detail === "Sorry, that tag already exists.") {
+      return
+    }
     if (error) throw error
   }
 }
