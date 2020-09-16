@@ -5,16 +5,23 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "env": {
+    "jest/globals": true,
+    "node": true
+  },
 
   "plugins": [
     "@typescript-eslint",
     "prettier",
     "simple-import-sort",
-    "unicorn"
+    "unicorn",
+    "jest"
   ],
 
   "extends": [
     "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
     "airbnb-typescript/base",
     "prettier",
     "prettier/@typescript-eslint"

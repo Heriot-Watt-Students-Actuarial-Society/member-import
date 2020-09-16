@@ -3,7 +3,9 @@ import { MailchimpSegmentIds, MailchimpSegments } from "types"
 
 import currentAcademicYear from "../helpers/currentAcademicYear"
 
-const getSegmentsFromMailchimp = async (): Promise<MailchimpSegments> => {
+export const getSegmentsFromMailchimp = async (): Promise<
+  MailchimpSegments
+> => {
   const mailchimpApiKey: string = process.env.MAILCHIMP_API as string
   const listId: string = process.env.MAILCHIMP_MEMBERS_LIST_ID as string
 
@@ -18,7 +20,7 @@ const getSegmentsFromMailchimp = async (): Promise<MailchimpSegments> => {
   return segments
 }
 
-const getSegmentIds = async (): Promise<MailchimpSegmentIds> => {
+export const getSegmentIds = async (): Promise<MailchimpSegmentIds> => {
   const segments = await getSegmentsFromMailchimp()
 
   const segmentIds: MailchimpSegmentIds = {}
@@ -30,7 +32,7 @@ const getSegmentIds = async (): Promise<MailchimpSegmentIds> => {
   return segmentIds
 }
 
-const getSegmentNames = async (): Promise<string[]> => {
+export const getSegmentNames = async (): Promise<string[]> => {
   const segments = await getSegmentsFromMailchimp()
 
   return segments.map((segment) => {
@@ -38,7 +40,7 @@ const getSegmentNames = async (): Promise<string[]> => {
   })
 }
 
-const createNewSegment = async (segmentName: string): Promise<void> => {
+export const createNewSegment = async (segmentName: string): Promise<void> => {
   const mailchimp = new Mailchimp(process.env.MAILCHIMP_API as string)
 
   try {
@@ -62,7 +64,7 @@ const createNewSegment = async (segmentName: string): Promise<void> => {
   }
 }
 
-const verifyMailchimpSegments = async (): Promise<void> => {
+export const verifyMailchimpSegments = async (): Promise<void> => {
   const academicYear = currentAcademicYear()
 
   const segmentNames = await getSegmentNames()

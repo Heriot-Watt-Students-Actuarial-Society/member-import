@@ -1,13 +1,11 @@
 import { Attachment, ParsedMail, simpleParser } from "mailparser"
+import { Stream } from "stream"
 import { SendData } from "types"
 
 import parseMemberData from "./parseMemberData"
 import parseSpreadsheet from "./parseSpreadsheet"
 
-const parseMessage = (
-  stream: NodeJS.ReadableStream,
-  callback: SendData,
-): void => {
+const parseMessage = (stream: Stream, callback: SendData): void => {
   simpleParser(stream, (parseError: Error, mail: ParsedMail) => {
     if (parseError) throw parseError
 

@@ -16,5 +16,5 @@
     "noEmit": true,
     "baseUrl": "src"
   },
-  "include": ["src", "scripts"]
+  "exclude": ["../coverage"]
 }

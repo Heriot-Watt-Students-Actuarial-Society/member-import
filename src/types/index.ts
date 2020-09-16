@@ -10,8 +10,21 @@ export interface Config {
 
 export type MemberData = Record<string, string>[]
 
-export type MailchimpSegments = Record<string, string>[]
-export type MailchimpSegmentIds = Record<string, string>
+// https://mailchimp.com/developer/api/marketing/list-segments/list-segments/
+export interface MailchimpSegment {
+  id: number
+  name: string
+  member_count: number
+  type: "saved" | "static" | "fuzzy"
+  created_at: string
+  updated_at: string
+}
+
+export type MailchimpSegments = MailchimpSegment[]
+export type MailchimpSegmentIds = Record<
+  MailchimpSegment["name"],
+  MailchimpSegment["id"]
+>
 
 export type SendData = (data: MemberData, isFass: boolean) => void
 

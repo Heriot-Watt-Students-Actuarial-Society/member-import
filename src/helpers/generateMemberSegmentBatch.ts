@@ -4,7 +4,7 @@ import generateEmailArray from "./generateEmailArray"
 
 const generateSegmentAddBatchQuery = (
   data: MemberData,
-  segmentId: string,
+  segmentId: number,
 ): SegmentRequest => {
   const emailArray = generateEmailArray(data)
   const listId: string = process.env.MAILCHIMP_MEMBERS_LIST_ID as string

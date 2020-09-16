@@ -1,4 +1,14 @@
 {
   "cSpell.words": ["Fass", "MAILCHIMP", "mailparser", "struct"],
-  "cSpell.ignoreWords": ["fname", "lname", "matric"]
+  "cSpell.ignoreWords": ["fname", "lname", "matric"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "node_modules": true,
+    "coverage": true
+  },
+  "explorerExclude.backup": null
 }
