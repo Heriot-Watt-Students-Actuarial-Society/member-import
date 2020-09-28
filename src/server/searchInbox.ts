@@ -1,7 +1,6 @@
 import Imap from "imap"
 import { SendData } from "types"
 
-import getFetchParams from "../helpers/getFetchParams"
 import getSearchParams from "../helpers/getSearchParams"
 import parseMessageStream from "../helpers/parseMessageStream"
 
@@ -14,7 +13,13 @@ const searchInbox = (imapServer: Imap, sendDataCallback: SendData): void => {
       return
     }
 
-    const fetchedServer = imapServer.fetch(results, getFetchParams())
+    const fetchParams = {
+      bodies: "",
+      struct: true,
+      markSeen: true,
+    }
+
+    const fetchedServer = imapServer.fetch(results, fetchParams)
 
     fetchedServer.on("message", (message) => {
       message.on("body", (stream) =>
