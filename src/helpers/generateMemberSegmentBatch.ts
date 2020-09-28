@@ -3,7 +3,7 @@ import { MemberData, SegmentRequest } from "types"
 import generateEmailArray from "./generateEmailArray"
 
 const generateSegmentAddBatchQuery = (
-  data: MemberData,
+  data: MemberData[],
   segmentId: number,
 ): SegmentRequest => {
   const emailArray = generateEmailArray(data)

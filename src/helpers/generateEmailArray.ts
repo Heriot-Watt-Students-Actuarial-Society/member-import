@@ -1,6 +1,6 @@
 import { MemberData } from "types"
 
-const generateEmailArray = (data: MemberData): string[] => {
+const generateEmailArray = (data: MemberData[]): string[] => {
   return data.map((person) => {
     return person.email
   })

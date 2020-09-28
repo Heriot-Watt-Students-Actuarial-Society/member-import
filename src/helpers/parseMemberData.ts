@@ -1,6 +1,6 @@
 import { MemberData } from "types"
 
-const parseMemberData = (data: MemberData): MemberData => {
+const parseMemberData = (data: Record<string, string>[]): MemberData[] => {
   // If there is not enough data
   if (data.length <= 1) {
     throw new Error("Not enough data")
@@ -33,7 +33,7 @@ const parseMemberData = (data: MemberData): MemberData => {
     memberData[index].occupation = "Student"
   })
 
-  return memberData
+  return memberData as MemberData[]
 }
 
 export default parseMemberData

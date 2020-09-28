@@ -4,7 +4,7 @@ import currentAcademicYear from "./currentAcademicYear"
 import generateSubscriberHash from "./generateSubscriberHash"
 
 const generateMemberBatch = (
-  data: MemberData,
+  data: MemberData[],
   isFass: boolean,
 ): MemberRequest[] => {
   const academicYear = currentAcademicYear()
